@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>邹青 · 人物造型图集</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#0a0a14;color:#ede4d4;font-family:"PingFang SC","Noto Serif SC",serif;min-height:100vh}
+.app{display:flex;min-height:100vh}
+.main{flex:1;min-width:0;margin-left:200px}
+
+.sidebar{position:fixed;top:0;left:0;width:200px;height:100vh;background:#0d1020;border-right:1px solid rgba(180,160,120,.12);z-index:100;overflow-y:auto;display:flex;flex-direction:column;padding:24px 0}
+.sidebar-header{padding:0 20px 20px;border-bottom:1px solid rgba(180,160,120,.1);margin-bottom:16px}
+.sidebar-header .logo{font-size:18px;letter-spacing:.12em;color:#e0d4b8;font-weight:300}
+.sidebar-header .ver{font-size:11px;color:rgba(180,150,110,.35);margin-top:4px;letter-spacing:.08em}
+.sidebar-nav{flex:1;padding:0 12px}
+.sidebar-nav a{display:block;padding:10px 16px;font-size:14px;color:rgba(200,180,140,.5);text-decoration:none;letter-spacing:.06em;border-radius:6px;transition:all .25s;margin-bottom:2px;border-left:2px solid transparent}
+.sidebar-nav a:hover{color:rgba(230,210,160,.85);background:rgba(200,170,120,.06);border-left-color:rgba(200,170,120,.3)}
+.sidebar-nav a.active{color:#e0d4b8;background:rgba(200,170,120,.1);border-left-color:rgba(200,170,120,.6)}
+.sidebar-nav .nav-count{font-size:11px;color:rgba(180,150,110,.3);float:right;margin-top:2px}
+.sidebar-footer{padding:16px 20px 8px;border-top:1px solid rgba(180,160,120,.08);font-size:11px;color:rgba(170,150,110,.3);letter-spacing:.06em}
+.sidebar-back{padding:0 20px 12px;border-bottom:1px solid rgba(180,160,120,.1);margin-bottom:16px}
+.sidebar-back a{font-size:12px;color:rgba(180,150,120,.4);text-decoration:none;letter-spacing:.06em;transition:color .2s}
+.sidebar-back a:hover{color:rgba(220,190,140,.7)}
+
+.hero{position:relative;text-align:center;padding:60px 20px 40px;background:linear-gradient(180deg,#0d1020 0%,#12182b 40%,#0a0a14 100%);border-bottom:1px solid rgba(180,160,120,.15);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(1px 1px at 10% 20%,rgba(255,255,255,.5),transparent),radial-gradient(1px 1px at 30% 60%,rgba(255,255,255,.4),transparent),radial-gradient(1.5px 1.5px at 55% 15%,rgba(255,255,255,.6),transparent),radial-gradient(1px 1px at 70% 40%,rgba(255,255,255,.3),transparent),radial-gradient(1.5px 1.5px at 85% 70%,rgba(255,255,255,.5),transparent),radial-gradient(1px 1px at 15% 80%,rgba(255,255,255,.4),transparent);pointer-events:none}
+.hero h1{position:relative;font-size:clamp(36px,6vw,60px);font-weight:300;letter-spacing:.15em;color:#e0d4b8;text-shadow:0 0 40px rgba(220,190,130,.35);margin-bottom:8px}
+.hero .subtitle{position:relative;font-size:15px;letter-spacing:.2em;color:rgba(190,160,120,.5);margin-bottom:6px}
+.hero .meta{position:relative;font-size:14px;letter-spacing:.1em;color:rgba(180,150,110,.4);margin-top:6px}
+
+.bible-core{max-width:1100px;margin:32px auto 0;padding:0 24px;text-align:center}
+.bible-definition{display:inline-block;font-size:17px;line-height:1.8;color:#d4c8a0;letter-spacing:.06em;padding:18px 28px;border:1px solid rgba(200,170,120,.3);border-radius:6px;background:rgba(200,170,120,.05);margin-bottom:24px;max-width:800px}
+.bible-definition em{font-style:normal;color:#e0d4b0}
+.bible-tones{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:20px}
+.bible-tone{font-size:14px;letter-spacing:.08em;color:rgba(200,180,140,.7);padding:6px 18px;border:1px solid rgba(180,150,100,.15);border-radius:20px;background:rgba(180,150,100,.04)}
+
+.section-block{max-width:1600px;margin:0 auto;padding:0 28px}
+.section-title{display:flex;align-items:center;gap:14px;margin:52px 0 8px;scroll-margin-top:24px}
+.section-title:first-of-type{margin-top:36px}
+.section-title .line{flex:1;height:1px;background:rgba(180,160,120,.2)}
+.section-title h2{font-size:17px;font-weight:400;letter-spacing:.2em;color:rgba(210,190,160,.65);white-space:nowrap}
+.section-desc{font-size:14px;color:rgba(180,160,120,.45);letter-spacing:.05em;margin-bottom:20px;padding-left:4px}
+
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:start;padding-bottom:8px}
+
+.card{position:relative;background:#111524;border:1px solid rgba(140,120,80,.2);border-radius:8px;overflow:hidden;cursor:pointer;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.5),0 0 30px rgba(180,140,80,.08);border-color:rgba(180,140,80,.4)}
+.card.collage-card{grid-column:1/-1;max-width:1100px;justify-self:center;width:100%}
+.card .img-container{width:100%;overflow:hidden;background:#0a0d16}
+.card .img-container img{width:100%;height:auto;display:block;transition:transform .5s ease}
+.card:hover img{transform:scale(1.03)}
+.card .label{padding:12px 16px}
+.card .scene-name{font-size:16px;color:#d4c8a8;letter-spacing:.05em;margin-bottom:2px}
+.card .scene-script{font-size:13px;color:rgba(210,190,160,.5);letter-spacing:.03em;line-height:1.5}
+
+.card .pair-row{display:flex;gap:3px}
+.card .pair-row .img-container{flex:1}
+.card .pair-row .img-container:first-child{border-right:2px solid rgba(140,120,80,.15)}
+.card .pair-label{display:flex;justify-content:space-between;font-size:11px;color:rgba(200,170,130,.4);padding:4px 16px 0;letter-spacing:.06em}
+
+.card.ref-card .img-container{aspect-ratio:3/4}
+.card.ref-card .img-container img{height:100%;object-fit:cover}
+
+.lightbox{display:none;position:fixed;inset:0;z-index:1000;background:rgba(5,5,15,.95);backdrop-filter:blur(10px);justify-content:center;align-items:center;flex-direction:column}
+.lightbox.active{display:flex}
+.lightbox img{max-width:92vw;max-height:82vh;object-fit:contain;border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);font-size:48px;color:rgba(215,200,170,.45);cursor:pointer;padding:20px;transition:color .2s;z-index:1001;user-select:none}
+.lb-nav:hover{color:rgba(230,215,180,.9)}
+.lb-prev{left:20px}.lb-next{right:20px}
+.lightbox .lb-close{position:absolute;top:24px;right:36px;font-size:42px;color:rgba(215,200,170,.55);cursor:pointer;transition:color .2s;z-index:1001}
+.lightbox .lb-close:hover{color:rgba(230,215,180,.9)}
+.lightbox .lb-info{margin-top:18px;font-size:16px;letter-spacing:.08em;color:rgba(215,200,170,.75);text-align:center;max-width:700px;line-height:1.7}
+
+.footer{text-align:center;padding:50px 20px 50px;font-size:14px;letter-spacing:.1em;color:rgba(170,150,110,.4)}
+
+@media(max-width:1400px){.gallery{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:1000px){.gallery{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.sidebar{display:none}.main{margin-left:0}.gallery{grid-template-columns:1fr;gap:20px}.hero{padding:40px 16px 30px}.card.collage-card{max-width:100%}.bible-definition{font-size:15px;padding:14px 18px}}
+</style>
+</head>
+<body>
+
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="logo">邹青造型</div>
+    <div class="ver">失控游戏 · EP01</div>
+  </div>
+  <div class="sidebar-back"><a href="../index.html">← 返回角色选择</a></div>
+  <nav class="sidebar-nav" id="sidebarNav"></nav>
+  <div class="sidebar-footer">83 张 · 6 分区</div>
+</aside>
+
+<main class="main">
+
+<header class="hero">
+<p class="subtitle">失控游戏 · EP01</p>
+<h1>邹 青 造 型 图 集</h1>
+<div class="bible-core">
+<div class="bible-definition"><em>邹青</em> —— 22岁，运动装，体格结实，头发短，笑起来有点欠。<br>五人小队的<em>「力量位兼高危测试」</em>，永远在作死边缘试探。</div>
+<div class="bible-tones"><span class="bible-tone">22岁</span><span class="bible-tone">运动型</span><span class="bible-tone">短头发</span><span class="bible-tone">高危测试位</span></div>
+</div>
+</header>
+
+<div id="content-root"></div>
+<div class="footer">失 控 游 戏 · 邹 青</div>
+</main>
+</div>
+
+<div class="lightbox" id="lightbox"><span class="lb-close" id="lbClose">&times;</span><span class="lb-nav lb-prev" id="lbPrev">&#8249;</span><img src="" alt="" id="lbImg"><div class="lb-info" id="lbInfo"></div><span class="lb-nav lb-next" id="lbNext">&#8250;</span></div>
+
+<script>
+const lightbox=document.getElementById("lightbox"),lbImg=document.getElementById("lbImg"),lbInfo=document.getElementById("lbInfo");
+let cur=0,lbItems=[];
+function openLightbox(i){cur=i;updateLb();lightbox.classList.add("active");document.body.style.overflow="hidden"}
+function closeLightbox(){lightbox.classList.remove("active");document.body.style.overflow=""}
+function updateLb(){var s=lbItems[cur];lbImg.src=s.file;lbImg.alt=s.name;lbInfo.innerHTML='<b>'+s.name+'</b> &nbsp;·&nbsp; '+(cur+1)+'/'+lbItems.length+'<br><span style="font-size:14px;color:rgba(180,160,120,.5)">'+(s.info||"")+'</span>'}
+function prev(){cur=(cur-1+lbItems.length)%lbItems.length;updateLb()}
+function next(){cur=(cur+1)%lbItems.length;updateLb()}
+document.getElementById("lbClose").addEventListener("click",closeLightbox);
+document.getElementById("lbPrev").addEventListener("click",function(e){e.stopPropagation();prev()});
+document.getElementById("lbNext").addEventListener("click",function(e){e.stopPropagation();next()});
+lightbox.addEventListener("click",function(e){if(e.target===lightbox)closeLightbox()});
+document.addEventListener("keydown",function(e){if(!lightbox.classList.contains("active"))return;if(e.key==="Escape")closeLightbox();if(e.key==="ArrowLeft")prev();if(e.key==="ArrowRight")next()});
+
+function P(cat,n){return{full:"thumbs/"+cat+"/方案"+n+"_全身.png",half:"thumbs/"+cat+"/方案"+n+"_半身.png",fullOrig:"originals/"+cat+"/方案"+n+"_全身.png",halfOrig:"originals/"+cat+"/方案"+n+"_半身.png"}}
+
+const sections=[
+{id:"sec-biaozhun",title:"🎭 标准造型",desc:"6 套方案 · 每套全身+半身",pairs:[P("标准造型",1),P("标准造型",2),P("标准造型",3),P("标准造型",4),P("标准造型",5),P("标准造型",6)]},
+{id:"sec-biaoqing",title:"😊 表情资产",desc:"8 套方案 · 每套全身+半身",pairs:[P("表情资产",1),P("表情资产",2),P("表情资产",3),P("表情资产",4),P("表情资产",5),P("表情资产",6),P("表情资产",7),P("表情资产",8)]},
+{id:"sec-dongzuo",title:"🏃 动作资产",desc:"6 套方案 · 每套全身+半身",pairs:[P("动作资产",1),P("动作资产",2),P("动作资产",3),P("动作资产",4),P("动作资产",5),P("动作资产",6)]},
+{id:"sec-yaoyaobei",title:"🧃 摇摇杯道具",desc:"1 套方案 · 全身+半身",pairs:[P("摇摇杯道具",1)]},
+{id:"sec-zaoxing",title:"🔄 造型变化",desc:"11 套方案 · 每套全身+半身",pairs:[P("造型变化",1),P("造型变化",2),P("造型变化",3),P("造型变化",4),P("造型变化",5),P("造型变化",6),P("造型变化",7),P("造型变化",8),P("造型变化",9),P("造型变化",10),P("造型变化",11)]},
+{id:"sec-suolian",title:"🔒 锁脸素材",desc:"14 张 · 多角度面部锁定参考",refs:[
+{name:"正面平视 无表情",file:"thumbs/锁脸素材/邹青-正面平视无表情.jpg",orig:"originals/锁脸素材/邹青-正面平视无表情.jpg"},
+{name:"正面平视 轻微表情",file:"thumbs/锁脸素材/邹青-正面平视，轻微表情.jpg",orig:"originals/锁脸素材/邹青-正面平视，轻微表情.jpg"},
+{name:"微抬头正面",file:"thumbs/锁脸素材/邹青-微抬头正面.jpg",orig:"originals/锁脸素材/邹青-微抬头正面.jpg"},
+{name:"左 45°",file:"thumbs/锁脸素材/邹青-左45°.jpg",orig:"originals/锁脸素材/邹青-左45°.jpg"},
+{name:"右 45°",file:"thumbs/锁脸素材/邹青-右45°.jpg",orig:"originals/锁脸素材/邹青-右45°.jpg"},
+{name:"左侧面 90°",file:"thumbs/锁脸素材/邹青-左侧面90°.jpg",orig:"originals/锁脸素材/邹青-左侧面90°.jpg"},
+{name:"右侧面 90°",file:"thumbs/锁脸素材/邹青-右侧面90°.jpg",orig:"originals/锁脸素材/邹青-右侧面90°.jpg"},
+{name:"全身正面站立",file:"thumbs/锁脸素材/邹青-全身正面站立.jpg",orig:"originals/锁脸素材/邹青-全身正面站立.jpg"},
+{name:"全身背面站立",file:"thumbs/锁脸素材/邹青-全身背面站立.jpg",orig:"originals/锁脸素材/邹青-全身背面站立.jpg"},
+{name:"全身左侧",file:"thumbs/锁脸素材/邹青-全身左侧.jpg",orig:"originals/锁脸素材/邹青-全身左侧.jpg"},
+{name:"全身右侧",file:"thumbs/锁脸素材/邹青-全身右侧.jpg",orig:"originals/锁脸素材/邹青-全身右侧.jpg"},
+{name:"自然站姿半身",file:"thumbs/锁脸素材/邹青-自然站姿半身.jpg",orig:"originals/锁脸素材/邹青-自然站姿半身.jpg"},
+{name:"自然坐姿 1",file:"thumbs/锁脸素材/邹青-自然坐姿1.jpg",orig:"originals/锁脸素材/邹青-自然坐姿1.jpg"},
+{name:"自然坐姿 2",file:"thumbs/锁脸素材/邹青-自然坐姿2.jpg",orig:"originals/锁脸素材/邹青-自然坐姿2.jpg"}
+]}
+];
+
+const nav=document.getElementById("sidebarNav");
+sections.forEach(function(sec){var a=document.createElement("a");a.href="#"+sec.id;a.innerHTML=sec.title+'<span class="nav-count">'+(sec.pairs?sec.pairs.length:(sec.refs?sec.refs.length:""))+'</span>';nav.appendChild(a)});
+
+const root=document.getElementById("content-root");let li=0;
+sections.forEach(function(sec){
+var block=document.createElement("div");block.className="section-block";block.id=sec.id;
+var title=document.createElement("div");title.className="section-title";
+title.innerHTML='<div class="line"></div><h2>▎'+sec.title+'</h2><div class="line"></div>';
+block.appendChild(title);
+if(sec.desc){var d=document.createElement("div");d.className="section-desc";d.textContent=sec.desc;block.appendChild(d)}
+var g=document.createElement("div");g.className="gallery";
+if(sec.collage){var idx=li++;var c=document.createElement("div");c.className="card collage-card";c.innerHTML='<div class="img-container"><img src="'+sec.collage+'" alt="一览图"></div><div class="label"><div class="scene-name">📋 试妆探索一览图</div><div class="scene-script">全部方案并排对比</div></div>';c.addEventListener("click",function(){openLightbox(idx)});g.appendChild(c);lbItems.push({file:sec.collageFull,name:sec.title+" · 一览图",info:"全部方案并排对比"})}
+if(sec.pairs){sec.pairs.forEach(function(p,n){var idxF=li++,idxH=li++;var c=document.createElement("div");c.className="card";c.innerHTML='<div class="pair-label"><span>全身</span><span>半身</span></div><div class="pair-row"><div class="img-container"><img src="'+p.full+'" alt="方案'+(n+1)+' 全身"></div><div class="img-container"><img src="'+p.half+'" alt="方案'+(n+1)+' 半身"></div></div><div class="label" style="display:flex;justify-content:space-between;align-items:center"><div class="scene-name">方案 '+(n+1)+'</div><div style="font-size:12px;color:rgba(180,160,120,.35)">点击查看</div></div>';c.querySelectorAll(".img-container")[0].addEventListener("click",function(e){e.stopPropagation();openLightbox(idxF)});c.querySelectorAll(".img-container")[1].addEventListener("click",function(e){e.stopPropagation();openLightbox(idxH)});g.appendChild(c);lbItems.push({file:p.fullOrig,name:sec.title+" · 方案 "+(n+1)+" 全身",info:"方案 "+(n+1)+" · 全身"});lbItems.push({file:p.halfOrig,name:sec.title+" · 方案 "+(n+1)+" 半身",info:"方案 "+(n+1)+" · 半身"})})}
+if(sec.refs){sec.refs.forEach(function(ref){var idx=li++;var c=document.createElement("div");c.className="card ref-card";c.innerHTML='<div class="img-container"><img src="'+ref.file+'" alt="'+ref.name+'"></div><div class="label"><div class="scene-name">'+ref.name+'</div></div>';c.addEventListener("click",function(){openLightbox(idx)});g.appendChild(c);lbItems.push({file:ref.orig,name:"锁脸素材 · "+ref.name,info:"面部锁定参考"})})}
+block.appendChild(g);root.appendChild(block)
+});
+
+var navLinks=document.querySelectorAll(".sidebar-nav a");
+function updateActive(){var s=window.scrollY+120;var a=null;navLinks.forEach(function(l){var sec=document.getElementById(l.getAttribute("href").slice(1));if(sec&&sec.offsetTop<=s)a=l});if(a){navLinks.forEach(function(l){l.classList.remove("active")});a.classList.add("active")}}
+window.addEventListener("scroll",updateActive);updateActive();
+</script>
+</body>
+</html>
