@@ -74,20 +74,22 @@ body{background:#0a0a14;color:#ede4d4;font-family:"PingFang SC","Noto Serif SC",
 .lightbox .lb-close:hover{color:rgba(230,215,180,.9)}
 .lightbox .lb-info{margin-top:18px;font-size:16px;letter-spacing:.08em;color:rgba(215,200,170,.75);text-align:center;max-width:700px;line-height:1.7}
 
-.footer{
-/* ── Password Gate ── */
-.pw-gate{position:fixed;inset:0;z-index:9999;background:#0d1020;display:flex;align-items:center;justify-content:center;flex-direction:column}
-.pw-gate.hidden{display:none}
-.pw-gate .pw-box{text-align:center;padding:48px 40px;background:#111524;border:1px solid rgba(140,120,80,.2);border-radius:12px;max-width:380px;width:90%}
-.pw-gate .pw-box h3{font-size:20px;font-weight:300;letter-spacing:.12em;color:#e0d4b8;margin-bottom:8px}
-.pw-gate .pw-box .pw-sub{font-size:13px;color:rgba(180,160,120,.4);letter-spacing:.06em;margin-bottom:28px}
-.pw-gate .pw-box input{width:100%;padding:12px 16px;font-size:16px;letter-spacing:.1em;background:#0a0d16;border:1px solid rgba(140,120,80,.25);border-radius:6px;color:#e0d4b8;text-align:center;outline:none;transition:border-color .25s}
-.pw-gate .pw-box input:focus{border-color:rgba(200,170,120,.5)}
-.pw-gate .pw-box input::placeholder{color:rgba(150,130,100,.3)}
-.pw-gate .pw-box button{margin-top:16px;width:100%;padding:12px;font-size:16px;letter-spacing:.1em;color:#0a0a14;background:rgba(200,170,120,.7);border:none;border-radius:6px;cursor:pointer;transition:background .25s}
-.pw-gate .pw-box button:hover{background:rgba(220,190,140,.85)}
-.pw-gate .pw-err{margin-top:14px;font-size:13px;color:rgba(200,100,80,.7);letter-spacing:.05em;min-height:18px}
-text-align:center;padding:50px 20px 50px;font-size:14px;letter-spacing:.1em;color:rgba(170,150,110,.4)}
+.footer{text-align:center;padding:50px 20px 50px;font-size:14px;letter-spacing:.1em;color:rgba(170,150,110,.4)}
+
+.bible-toggle{display:inline-block;font-size:14px;letter-spacing:.12em;color:rgba(180,150,100,.5);cursor:pointer;padding:8px 24px;border:1px solid rgba(180,150,100,.2);border-radius:4px;background:transparent;transition:all .25s;margin:16px 0 0}
+.bible-toggle:hover{color:rgba(220,190,130,.8);border-color:rgba(180,150,100,.4);background:rgba(180,150,100,.06)}
+.bible-detail{display:none;max-width:900px;margin:20px auto 0;padding:28px 32px 40px;text-align:left;border:1px solid rgba(180,150,100,.15);border-radius:8px;background:rgba(15,18,28,.8);max-height:75vh;overflow-y:auto}
+.bible-detail.active{display:block}
+.bible-detail h3{font-size:17px;font-weight:400;color:#e0d4b0;letter-spacing:.08em;margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid rgba(200,170,120,.15)}
+.bible-detail h3:first-child{margin-top:0}
+.bible-detail h4{font-size:15px;font-weight:400;color:#d4c8a0;margin:14px 0 6px}
+.bible-detail p,.bible-detail li{font-size:14px;line-height:1.8;color:rgba(215,200,170,.75)}
+.bible-detail ul{padding-left:20px;margin:6px 0}
+.bible-detail li{margin:3px 0}
+.bible-detail table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px}
+.bible-detail th,.bible-detail td{padding:8px 12px;border:1px solid rgba(200,170,120,.15);text-align:left;color:rgba(215,200,170,.75)}
+.bible-detail th{color:#d4c8a0;font-weight:400;background:rgba(200,170,120,.05)}
+.bible-detail blockquote{border-left:2px solid rgba(200,170,120,.4);padding:6px 16px;margin:10px 0;color:rgba(215,200,170,.7);font-size:14px;font-style:italic}
 
 @media(max-width:1400px){.gallery{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:1000px){.gallery{grid-template-columns:repeat(2,1fr)}}
@@ -123,8 +125,60 @@ text-align:center;padding:50px 20px 50px;font-size:14px;letter-spacing:.1em;colo
 <p class="subtitle">失控游戏 · EP01</p>
 <h1>邹 青 造 型 图 集</h1>
 <div class="bible-core">
-<div class="bible-definition"><em>邹青</em> —— 22岁，运动装，体格结实，头发短，笑起来有点欠。<br>五人小队的<em>「力量位兼高危测试」</em>，永远在作死边缘试探。</div>
-<div class="bible-tones"><span class="bible-tone">22岁</span><span class="bible-tone">运动型</span><span class="bible-tone">短头发</span><span class="bible-tone">高危测试位</span></div>
+<div class="bible-definition"><em>邹青</em> —— 22岁，跆拳道教练、健身博主。<br>鲜绿色立领训练夹克 + 纯黑无袖内搭 + 卡其五分短裤 + GoPro胸挂。<br>五人小队的<em>「行动担当」</em> — 身体先于判断，永远冲在最前面。</div>
+<div class="bible-tones"><span class="bible-tone">22岁</span><span class="bible-tone">跆拳道教练</span><span class="bible-tone">鲜绿夹克</span><span class="bible-tone">GoPro</span><span class="bible-tone">行动担当</span></div>
+<button class="bible-toggle" id="bibleToggle" onclick="toggleBible()">▸ 查阅完整造型圣经</button>
+<div class="bible-detail" id="bibleDetail">
+<h3>角色核心</h3>
+<p>邹青，22岁，跆拳道教练、健身内容创作者。核心欲望：证明自己是有用的。行为逻辑：身体常常先于判断。典型潜台词：「我来」「问题不大」「先试一下再说」。</p>
+<h3>核心视觉命题</h3>
+<blockquote>一个穿着鲜绿训练夹克、挂着GoPro、随时准备先冲上去的年轻跆拳道教练。</blockquote>
+<h3>身份锚点</h3>
+<ul><li>短寸头、方圆脸型、真实皮肤、眉骨附近轻微伤痕</li><li>宽肩、胸背厚实、运动型体格、手臂腿部肌肉明显</li><li>固定22岁，禁止生成成28+或十几岁</li></ul>
+<h3>基础定妆</h3>
+<table>
+<tr><th>部位</th><th>描述</th></tr>
+<tr><td>外层</td><td>鲜绿色硬挺立领训练夹克 — 短款、拉链敞开、哑光高密度梭织</td></tr>
+<tr><td>内搭</td><td>纯黑无袖训练上衣 — 宽肩带、轻薄透气</td></tr>
+<tr><td>下装</td><td>卡其色五分训练短裤 — 膝上8-12cm、哑光弹力梭织</td></tr>
+<tr><td>鞋袜</td><td>白色中筒运动袜 + 黑白复古训练鞋（低帮）</td></tr>
+</table>
+<h3>装备</h3>
+<ul><li>黑色GoPro胸挂 — 胸口中央，简洁弹力带</li><li>白色运动护腕 — 右手腕，可拆作包扎</li><li>半透明磨砂摇摇杯 — 绿色杯盖（辅助道具）</li></ul>
+<h3>配色系统</h3>
+<table>
+<tr><th>角色</th><th>主色</th></tr>
+<tr><td>主色</td><td>鲜明运动绿</td></tr>
+<tr><td>基础色</td><td>纯黑（内搭、GoPro带、鞋面）</td></tr>
+<tr><td>平衡色</td><td>卡其色（短裤）</td></tr>
+<tr><td>提亮色</td><td>白色（袜、护腕、鞋面）</td></tr>
+</table>
+<h3>状态变化 S0→S7</h3>
+<table>
+<tr><th>状态</th><th>描述</th></tr>
+<tr><td>S0 标准入场</td><td>夹克敞开、干净完整、可持摇摇杯</td></tr>
+<tr><td>S1 探索</td><td>袖子推至前臂、开始出汗</td></tr>
+<tr><td>S2 行动</td><td>外套脱下、只穿无袖、GoPro继续</td></tr>
+<tr><td>S3 外套系腰</td><td>绿色夹克系腰间、长时间行动</td></tr>
+<tr><td>S4 轻度受损</td><td>汗湿、灰尘、水痕、鞋脏</td></tr>
+<tr><td>S5 救援</td><td>护腕拆下包扎、或夹克作临时保护</td></tr>
+<tr><td>S6 中度受损</td><td>袖口裂口、面部擦伤、GoPro划痕</td></tr>
+<tr><td>S7 终局</td><td>夹克系腰或手持、疲惫但仍行动</td></tr>
+</table>
+<h3>与其他角色区分</h3>
+<table>
+<tr><th>角色</th><th>识别</th></tr>
+<tr><td>邹青</td><td>鲜绿上身 + 卡其短裤 + 裸露小腿 + GoPro</td></tr>
+<tr><td>王波</td><td>电子蓝、长裤、设备感</td></tr>
+<tr><td>张杭杭</td><td>奶油粉、轻盈、都市感</td></tr>
+<tr><td>赵蔚</td><td>暗红、克制、观察者</td></tr>
+<tr><td>周凯</td><td>橙色、装备多</td></tr>
+</table>
+<h3>AI生成禁止项</h3>
+<ul><li>换脸、换发型、换年龄、换身材比例</li><li>黑色短裤、绿色短裤、长裤、工装裤</li><li>连帽衫、绿色马甲、战术背心、软塌风衣</li><li>反光条、多口袋、大Logo、安全荧光绿</li><li>健身广告、时尚男模、偶像剧、特种兵、赛博朋克</li></ul>
+<h3>最终锁定</h3>
+<blockquote>不是让邹青每一张图都「更帅」，而是让观众在任何角度、任何状态中都能一眼认出他，并相信这套衣服真的陪他经历了整场冒险。</blockquote>
+</div>
 </div>
 </header>
 
@@ -140,6 +194,8 @@ text-align:center;padding:50px 20px 50px;font-size:14px;letter-spacing:.1em;colo
 (function(){if(sessionStorage.getItem("huzu_auth")==="1"){document.getElementById("pwGate").classList.add("hidden");return}})();
 const PW_HASH="019be397cf10ba2e242d7507db0852b1dcab423c62bd150024ef1333a68136aa";
 async function checkPw(){var i=document.getElementById("pwInput"),e=document.getElementById("pwErr"),g=document.getElementById("pwGate");if(!i.value){e.textContent="请输入密码";return}var h=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(i.value));var hex=Array.from(new Uint8Array(h)).map(function(b){return b.toString(16).padStart(2,"0")}).join("");if(hex===PW_HASH){g.classList.add("hidden");sessionStorage.setItem("huzu_auth","1")}else{e.textContent="密码错误，请重试";i.value="";i.focus()}}
+
+function toggleBible(){var d=document.getElementById("bibleDetail"),b=document.getElementById("bibleToggle");if(d.classList.contains("active")){d.classList.remove("active");b.innerHTML="▸ 查阅完整造型圣经"}else{d.classList.add("active");b.innerHTML="▾ 收起造型圣经";d.scrollIntoView({behavior:"smooth",block:"nearest"})}}
 
 const lightbox=document.getElementById("lightbox"),lbImg=document.getElementById("lbImg"),lbInfo=document.getElementById("lbInfo");
 let cur=0,lbItems=[];
