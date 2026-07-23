@@ -21,6 +21,20 @@ body{background:#0a0a14;color:#ede4d4;font-family:"PingFang SC","Noto Serif SC",
 .bible-definition em{font-style:normal;color:#e0d4b0}
 .bible-tones{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:18px}
 .bible-tone{font-size:14px;letter-spacing:.08em;color:rgba(200,180,140,.7);padding:6px 18px;border:1px solid rgba(180,150,100,.15);border-radius:20px;background:rgba(180,150,100,.04)}
+.bible-toggle{display:inline-block;font-size:14px;letter-spacing:.12em;color:rgba(180,150,100,.5);cursor:pointer;padding:8px 24px;border:1px solid rgba(180,150,100,.2);border-radius:4px;background:transparent;transition:all .25s;margin:16px 0 0}
+.bible-toggle:hover{color:rgba(220,190,130,.8);border-color:rgba(180,150,100,.4);background:rgba(180,150,100,.06)}
+.bible-detail{display:none;max-width:900px;margin:20px auto 0;padding:28px 32px 40px;text-align:left;border:1px solid rgba(180,150,100,.15);border-radius:8px;background:rgba(15,18,28,.8);max-height:75vh;overflow-y:auto}
+.bible-detail.active{display:block}
+.bible-detail h3{font-size:17px;font-weight:400;color:#e0d4b0;letter-spacing:.08em;margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid rgba(200,170,120,.15)}
+.bible-detail h3:first-child{margin-top:0}
+.bible-detail h4{font-size:15px;font-weight:400;color:#d4c8a0;margin:14px 0 6px}
+.bible-detail p,.bible-detail li{font-size:14px;line-height:1.8;color:rgba(215,200,170,.75)}
+.bible-detail ul{padding-left:20px;margin:6px 0}
+.bible-detail li{margin:3px 0}
+.bible-detail table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px}
+.bible-detail th,.bible-detail td{padding:8px 12px;border:1px solid rgba(200,170,120,.15);text-align:left;color:rgba(215,200,170,.75)}
+.bible-detail th{color:#d4c8a0;font-weight:400;background:rgba(200,170,120,.05)}
+.bible-detail blockquote{border-left:2px solid rgba(200,170,120,.4);padding:6px 16px;margin:10px 0;color:rgba(215,200,170,.7);font-size:14px;font-style:italic}
 
 .section-title{display:flex;align-items:center;gap:14px;max-width:900px;margin:48px auto 18px;padding:0 24px}
 .section-title .line{flex:1;height:1px;background:rgba(180,160,120,.2)}
@@ -81,8 +95,64 @@ body{background:#0a0a14;color:#ede4d4;font-family:"PingFang SC","Noto Serif SC",
 <p class="sub">失控游戏 · EP01</p>
 <h1>赵 蔚</h1>
 <div class="bible-core">
-<div class="bible-definition"><em>赵蔚</em> —— 20岁，消瘦，戴眼镜，观察位。<br>五人小队的数据分析者，冷静克制，<br>习惯在行动前做足风险评估。</div>
-<div class="bible-tones"><span class="bible-tone">20岁</span><span class="bible-tone">眼镜</span><span class="bible-tone">观察位</span><span class="bible-tone">冷静</span></div>
+<div class="bible-definition"><em>赵蔚</em> —— 20岁，圆框金属眼镜，暗红旧衬衫，旧帆布斜挎包。<br>五人小队的<em>「观察位」</em> — 安静、克制、记录异常。<br>她不是最强的人，但因为一直认真看，看见了别人没看见的东西。</div>
+<div class="bible-tones">
+<span class="bible-tone">20岁</span><span class="bible-tone">暗红观察者</span><span class="bible-tone">圆框眼镜</span><span class="bible-tone">记录本</span><span class="bible-tone">旧帆布包</span><span class="bible-tone">克制</span>
+</div>
+<button class="bible-toggle" id="bibleToggle" onclick="toggleBible()">▸ 查阅完整造型圣经</button>
+<div class="bible-detail" id="bibleDetail">
+<h3>角色定位</h3>
+<p>赵蔚，20岁。恐怖片爱好者、细节观察者、赵斌妹妹。能力不是破解规则，而是发现别人忽略的异常。</p>
+<h3>核心视觉命题</h3>
+<blockquote>一个习惯站在人群边缘记录异常的女孩，穿着普通生活服装进入失控空间，最终成为第一个敢于面对真相的人。</blockquote>
+<h3>剪影识别</h3>
+<ul><li>长线条外层</li><li>暗红色上半身</li><li>宽松深色长裤</li><li>圆框眼镜轮廓</li><li>旧帆布斜挎包</li></ul>
+<h3>基础定妆</h3>
+<table>
+<tr><th>部位</th><th>描述</th></tr>
+<tr><td>外层</td><td>暗红旧衬衫/薄夹克 — 酒红、铁锈红、暗红棕，洗旧棉布</td></tr>
+<tr><td>内搭</td><td>旧纸白色基础T恤</td></tr>
+<tr><td>下装</td><td>深灰直筒裤，宽松实用，禁止紧身/裙装</td></tr>
+<tr><td>鞋</td><td>黑色帆布鞋，白边泛黄，鞋底磨损</td></tr>
+</table>
+<h3>面部与发型</h3>
+<ul><li>清淡五官、无强妆、情绪内收</li><li>圆框细金属眼镜（核心识别点）</li><li>低马尾/自然束发，黑色自然，功能优先</li></ul>
+<h3>随身物资产</h3>
+<ul><li>旧帆布包（米灰，使用痕迹）</li><li>调查记录本（时间、地点、异常记录）</li><li>手机（记录证据）</li><li>小手电（准备意识）</li><li>透明证物袋（旧照片、纸片）</li></ul>
+<h3>与其他女性区分</h3>
+<table>
+<tr><th>角色</th><th>主色</th><th>特征</th></tr>
+<tr><td>张杭杭</td><td>奶油粉</td><td>短外层、腰线明显、博主感</td></tr>
+<tr><td>赵蔚</td><td>暗红</td><td>长线条、收束、记录者</td></tr>
+<tr><td>麻花</td><td>旧黄</td><td>儿童比例、辫子</td></tr>
+<tr><td>晓晓</td><td>浅黄</td><td>蓝白格、红色小包</td></tr>
+</table>
+<h3>材质系统</h3>
+<table>
+<tr><th>部位</th><th>材质</th></tr>
+<tr><td>暗红外层</td><td>洗旧棉布</td></tr>
+<tr><td>内搭</td><td>旧棉T恤</td></tr>
+<tr><td>长裤</td><td>哑光棉布</td></tr>
+<tr><td>包</td><td>旧帆布</td></tr>
+<tr><td>笔记本</td><td>旧纸张、磨损皮面</td></tr>
+<tr><td>鞋</td><td>帆布、橡胶</td></tr>
+</table>
+<h3>进入星星岛后变化（G0→G5）</h3>
+<table>
+<tr><th>阶段</th><th>变化</th></tr>
+<tr><td>G0 进入前</td><td>衣服完整，包整理好，笔记本干净，眼镜清晰</td></tr>
+<tr><td>G1 儿童乐园</td><td>鞋边灰尘，包底污染，袖口轻微脏</td></tr>
+<tr><td>G2 通讯站</td><td>眼镜水汽，手部灰尘，记录增加</td></tr>
+<tr><td>G3 夜班工厂</td><td>衣服沾油，包出现机械污渍，笔记本卷曲</td></tr>
+<tr><td>G4 居民楼</td><td>外层打开，头发松散，主动行动</td></tr>
+<tr><td>G5 终局</td><td>衣服损耗明显，眼镜划痕，手部擦伤</td></tr>
+</table>
+<h3>AI生成关键词</h3>
+<p><strong>正向：</strong>young East Asian woman, 20 years old, round metal glasses, dark burgundy overshirt, off white t-shirt, dark gray loose pants, canvas shoulder bag, notebook, realistic Chinese college student, low saturation, cinematic costume design</p>
+<p><strong>禁止：</strong>detective, hacker, cyberpunk, fashion model, anime girl, school uniform, fantasy costume, tactical gear</p>
+<h3>最终视觉总结</h3>
+<blockquote>一个普通女孩，在一个越来越不普通的世界里，坚持记录真实。她的造型应该始终保持 —— 穿着同一套衣服，从被保护到保护别人。</blockquote>
+</div>
 </div>
 </header>
 
@@ -97,6 +167,8 @@ body{background:#0a0a14;color:#ede4d4;font-family:"PingFang SC","Noto Serif SC",
 (function(){if(sessionStorage.getItem("huzu_auth")==="1"){document.getElementById("pwGate").classList.add("hidden");return}})();
 const PW_HASH="019be397cf10ba2e242d7507db0852b1dcab423c62bd150024ef1333a68136aa";
 async function checkPw(){var i=document.getElementById("pwInput"),e=document.getElementById("pwErr"),g=document.getElementById("pwGate");if(!i.value){e.textContent="请输入密码";return}var h=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(i.value));var hex=Array.from(new Uint8Array(h)).map(function(b){return b.toString(16).padStart(2,"0")}).join("");if(hex===PW_HASH){g.classList.add("hidden");sessionStorage.setItem("huzu_auth","1")}else{e.textContent="密码错误，请重试";i.value="";i.focus()}}
+
+function toggleBible(){var d=document.getElementById("bibleDetail"),b=document.getElementById("bibleToggle");if(d.classList.contains("active")){d.classList.remove("active");b.innerHTML="▸ 查阅完整造型圣经"}else{d.classList.add("active");b.innerHTML="▾ 收起造型圣经";d.scrollIntoView({behavior:"smooth",block:"nearest"})}}
 
 const items=[
 {name:"全身 正面站立",thumb:"thumbs/全身_正面站立.png",orig:"originals/全身_正面站立.png"},
