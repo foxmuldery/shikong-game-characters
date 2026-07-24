@@ -6,31 +6,42 @@
 <title>失控游戏 · 人物造型图集</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a0a14;color:#ede4d4;font-family:"PingFang SC","Noto Serif SC",serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{background:#0a0a14;color:#ede4d4;font-family:"PingFang SC","Noto Serif SC",serif;min-height:100vh}
+.app{display:flex;min-height:100vh}
+.main{flex:1;min-width:0;margin-left:200px}
 
-.stars{position:fixed;inset:0;pointer-events:none;background:radial-gradient(1px 1px at 10% 20%,rgba(255,255,255,.6),transparent),radial-gradient(1px 1px at 25% 50%,rgba(255,255,255,.4),transparent),radial-gradient(1.5px 1.5px at 40% 15%,rgba(255,255,255,.7),transparent),radial-gradient(1px 1px at 55% 65%,rgba(255,255,255,.5),transparent),radial-gradient(1px 1px at 70% 35%,rgba(255,255,255,.3),transparent),radial-gradient(1.5px 1.5px at 85% 55%,rgba(255,255,255,.6),transparent),radial-gradient(1px 1px at 15% 80%,rgba(255,255,255,.4),transparent),radial-gradient(1px 1px at 60% 80%,rgba(255,255,255,.5),transparent)}
+.sidebar{position:fixed;top:0;left:0;width:200px;height:100vh;background:#0d1020;border-right:1px solid rgba(180,160,120,.12);z-index:100;overflow-y:auto;display:flex;flex-direction:column;padding:24px 0}
+.sidebar-header{padding:0 20px 20px;border-bottom:1px solid rgba(180,160,120,.1);margin-bottom:12px}
+.sidebar-header .logo{font-size:18px;letter-spacing:.12em;color:#e0d4b8;font-weight:300}
+.sidebar-header .ver{font-size:11px;color:rgba(180,150,110,.35);margin-top:4px;letter-spacing:.08em}
+.sidebar-nav{flex:1;padding:0 12px}
+.sidebar-nav a{display:block;padding:10px 16px;font-size:14px;color:rgba(200,180,140,.5);text-decoration:none;letter-spacing:.06em;border-radius:6px;transition:all .25s;margin-bottom:2px;border-left:2px solid transparent}
+.sidebar-nav a:hover{color:rgba(230,210,160,.85);background:rgba(200,170,120,.06);border-left-color:rgba(200,170,120,.3)}
+.sidebar-nav a.active{color:#e0d4b8;background:rgba(200,170,120,.1);border-left-color:rgba(200,170,120,.6)}
+.sidebar-nav .nav-count{font-size:11px;color:rgba(180,150,110,.3);float:right;margin-top:2px}
+.sidebar-footer{padding:16px 20px 8px;border-top:1px solid rgba(180,160,120,.08);font-size:11px;color:rgba(170,150,110,.3);letter-spacing:.06em}
 
-.container{position:relative;z-index:1;text-align:center;padding:40px 24px;max-width:900px;width:100%}
+.hero{position:relative;text-align:center;padding:50px 20px 36px;background:linear-gradient(180deg,#0d1020 0%,#12182b 40%,#0a0a14 100%);border-bottom:1px solid rgba(180,160,120,.15);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(1px 1px at 10% 20%,rgba(255,255,255,.5),transparent),radial-gradient(1px 1px at 30% 60%,rgba(255,255,255,.4),transparent),radial-gradient(1.5px 1.5px at 55% 15%,rgba(255,255,255,.6),transparent),radial-gradient(1px 1px at 70% 40%,rgba(255,255,255,.3),transparent),radial-gradient(1.5px 1.5px at 85% 70%,rgba(255,255,255,.5),transparent);pointer-events:none}
+.hero h1{position:relative;font-size:clamp(36px,6vw,60px);font-weight:300;letter-spacing:.15em;color:#e0d4b8;text-shadow:0 0 40px rgba(220,190,130,.35);margin-bottom:8px}
+.hero .ep{position:relative;font-size:15px;letter-spacing:.3em;color:rgba(190,160,120,.5);margin-bottom:6px}
+.hero .sub{position:relative;font-size:15px;letter-spacing:.2em;color:rgba(200,180,140,.45)}
 
-.header{margin-bottom:60px}
-.header .ep{font-size:15px;letter-spacing:.3em;color:rgba(190,160,120,.5);margin-bottom:10px}
-.header h1{font-size:clamp(38px,7vw,64px);font-weight:300;letter-spacing:.18em;color:#e0d4b8;text-shadow:0 0 50px rgba(220,190,130,.35);margin-bottom:12px}
-.header .sub{font-size:16px;letter-spacing:.25em;color:rgba(200,180,140,.45)}
+.characters{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1600px;margin:40px auto 60px;padding:0 28px}
 
-.characters{display:flex;gap:40px;justify-content:center;flex-wrap:wrap}
+.char-card{display:block;background:#111524;border:1px solid rgba(140,120,80,.2);border-radius:10px;overflow:hidden;text-decoration:none;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;cursor:pointer;scroll-margin-top:24px}
+.char-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.5),0 0 30px rgba(180,140,80,.08);border-color:rgba(180,140,80,.4)}
+.char-card .thumb{width:100%;height:200px;overflow:hidden;background:#0a0d16}
+.char-card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.char-card:hover .thumb img{transform:scale(1.04)}
+.char-card .info{padding:16px 20px 18px;text-align:left}
+.char-card .info .name{font-size:20px;letter-spacing:.08em;color:#d4c8a0;margin-bottom:6px}
+.char-card .info .role{font-size:13px;color:rgba(200,180,140,.5);letter-spacing:.04em;margin-bottom:10px;line-height:1.4}
+.char-card .info .stats{display:flex;gap:8px;flex-wrap:wrap}
+.char-card .info .stat{font-size:11px;color:rgba(180,150,120,.35);padding:3px 10px;border:1px solid rgba(180,150,100,.12);border-radius:10px;letter-spacing:.03em}
 
-.char-card{display:block;width:340px;background:#111524;border:1px solid rgba(140,120,80,.2);border-radius:12px;overflow:hidden;text-decoration:none;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;cursor:pointer}
-.char-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 40px rgba(180,140,80,.1);border-color:rgba(180,140,80,.5)}
-.char-card .thumb{width:100%;height:220px;overflow:hidden;background:#0a0d16;display:flex;align-items:center;justify-content:center}
-.char-card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
-.char-card:hover .thumb img{transform:scale(1.05)}
-.char-card .info{padding:24px 28px;text-align:left}
-.char-card .info .name{font-size:24px;letter-spacing:.1em;color:#d4c8a0;margin-bottom:8px}
-.char-card .info .role{font-size:14px;color:rgba(200,180,140,.55);letter-spacing:.06em;margin-bottom:12px}
-.char-card .info .stats{display:flex;gap:12px;flex-wrap:wrap}
-.char-card .info .stat{font-size:12px;color:rgba(180,150,120,.4);padding:4px 12px;border:1px solid rgba(180,150,100,.15);border-radius:12px;letter-spacing:.04em}
-
-.footer{margin-top:60px;font-size:14px;letter-spacing:.1em;color:rgba(170,150,110,.35)}
+.footer{text-align:center;padding:40px 20px 50px;font-size:14px;letter-spacing:.1em;color:rgba(170,150,110,.4)}
 
 /* ── Password Gate ── */
 .pw-gate{position:fixed;inset:0;z-index:9999;background:#0d1020;display:flex;align-items:center;justify-content:center;flex-direction:column}
@@ -45,133 +56,68 @@ body{background:#0a0a14;color:#ede4d4;font-family:"PingFang SC","Noto Serif SC",
 .pw-gate .pw-box button:hover{background:rgba(220,190,140,.85)}
 .pw-gate .pw-err{margin-top:14px;font-size:13px;color:rgba(200,100,80,.7);letter-spacing:.05em;min-height:18px}
 
-@media(max-width:800px){
-  .characters{flex-direction:column;align-items:center;gap:28px}
-  .char-card{width:100%;max-width:380px}
-}
+@media(max-width:1400px){.characters{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:1000px){.characters{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.sidebar{display:none}.main{margin-left:0}.characters{grid-template-columns:1fr;gap:20px}.hero{padding:36px 16px 28px}.char-card .thumb{height:160px}}
 </style>
 </head>
 <body>
 
 <div class="pw-gate" id="pwGate">
-<div class="pw-box">
-<h3>🔒 受限访问</h3>
-<div class="pw-sub">请输入密码以继续</div>
+<div class="pw-box"><h3>🔒 受限访问</h3><div class="pw-sub">请输入密码以继续</div>
 <input type="password" id="pwInput" placeholder="······" onkeydown="if(event.key==='Enter')checkPw()">
-<button onclick="checkPw()">进 入</button>
-<div class="pw-err" id="pwErr"></div>
-</div>
+<button onclick="checkPw()">进 入</button><div class="pw-err" id="pwErr"></div></div>
 </div>
 
-<div class="stars"></div>
-<div class="container">
-  <div class="header">
-    <p class="ep">失 控 游 戏 · EP01</p>
-    <h1>人 物 造 型 图 集</h1>
-    <p class="sub">选择角色查看完整造型资产</p>
-  </div>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><div class="logo">人物造型</div><div class="ver">失控游戏 · EP01</div></div>
+  <nav class="sidebar-nav" id="sidebarNav"></nav>
+  <div class="sidebar-footer">7 个角色 · 186 张</div>
+</aside>
 
-  <div class="characters">
-    <a class="char-card" href="邹青/index.html">
-      <div class="thumb"><img src="邹青/thumbs/标准造型/方案1_全身.png" alt="邹青"></div>
-      <div class="info">
-        <div class="name">邹 青</div>
-        <div class="role">22岁 · 力量位兼高危测试</div>
-        <div class="stats">
-          <span class="stat">83 张图</span>
-          <span class="stat">6 大分区</span>
-          <span class="stat">标准造型+表情+动作+锁脸</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="char-card" href="南建林/index.html">
-      <div class="thumb"><img src="南建林/thumbs/头像_正面平视1.jpeg" alt="南建林"></div>
-      <div class="info">
-        <div class="name">南 建 林</div>
-        <div class="role">麻花父亲 · 星星岛维修工</div>
-        <div class="stats">
-          <span class="stat">38 张图</span>
-          <span class="stat">2 大分区</span>
-          <span class="stat">头像表情+全身动态</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="char-card" href="赵蔚/index.html">
-      <div class="thumb"><img src="赵蔚/thumbs/全身_正面站立.png" alt="赵蔚"></div>
-      <div class="info">
-        <div class="name">赵 蔚</div>
-        <div class="role">20岁 · 观察位 · 数据分析</div>
-        <div class="stats">
-          <span class="stat">12 张图</span>
-          <span class="stat">造型参考</span>
-          <span class="stat">全身+近景+材质+物品</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="char-card" href="张杭杭/index.html">
-      <div class="thumb"><img src="张杭杭/thumbs/正面肖像.jpeg" alt="张杭杭"></div>
-      <div class="info">
-        <div class="name">张 杭 杭</div>
-        <div class="role">23岁 · 生活方式博主 · 邹青前女友</div>
-        <div class="stats">
-          <span class="stat">29 张图</span>
-          <span class="stat">造型参考</span>
-          <span class="stat">奶油粉·记录者·观察位</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="char-card" href="王波/index.html">
-      <div class="thumb"><img src="王波/thumbs/正面肖像.png" alt="王波"></div>
-      <div class="info">
-        <div class="name">王 波</div>
-        <div class="role">18岁 · 队长兼规则分析 · 游戏宅</div>
-        <div class="stats">
-          <span class="stat">10 张图</span>
-          <span class="stat">造型参考</span>
-          <span class="stat">电子蓝·黑框眼镜·攻略本</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="char-card" href="麻花/index.html">
-      <div class="thumb"><img src="麻花/thumbs/正面肖像.png" alt="麻花"></div>
-      <div class="info">
-        <div class="name">麻 花</div>
-        <div class="role">~8岁 · 儿童记忆残留体 · MH-08</div>
-        <div class="stats">
-          <span class="stat">6 张图</span>
-          <span class="stat">造型参考</span>
-          <span class="stat">浅黄背心·红蓝辫绳·蓝白格</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="char-card" href="周凯/index.html">
-      <div class="thumb"><img src="周凯/thumbs/正面肖像.png" alt="周凯"></div>
-      <div class="info">
-        <div class="name">周 凯</div>
-        <div class="role">25岁 · 机关位 · K.Ghost</div>
-        <div class="stats">
-          <span class="stat">8 张图</span>
-          <span class="stat">造型参考</span>
-          <span class="stat">橙色·装备控·密室大神</span>
-        </div>
-      </div>
-    </a>
-  </div>
-
-  <div class="footer">失 控 游 戏 · 人 物 造 型</div>
+<main class="main">
+<header class="hero">
+<p class="ep">失 控 游 戏 · EP01</p>
+<h1>人 物 造 型 图 集</h1>
+<p class="sub">选择角色查看完整造型资产</p>
+</header>
+<div class="characters" id="chars"></div>
+<div class="footer">失 控 游 戏 · 人 物 造 型</div>
+</main>
 </div>
 
 <script>
-/* ── Password Gate ── */
 (function(){if(sessionStorage.getItem("huzu_auth")==="1"){document.getElementById("pwGate").classList.add("hidden");return}})();
 const PW_HASH="019be397cf10ba2e242d7507db0852b1dcab423c62bd150024ef1333a68136aa";
 async function checkPw(){var i=document.getElementById("pwInput"),e=document.getElementById("pwErr"),g=document.getElementById("pwGate");if(!i.value){e.textContent="请输入密码";return}var h=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(i.value));var hex=Array.from(new Uint8Array(h)).map(function(b){return b.toString(16).padStart(2,"0")}).join("");if(hex===PW_HASH){g.classList.add("hidden");sessionStorage.setItem("huzu_auth","1")}else{e.textContent="密码错误，请重试";i.value="";i.focus()}}
+
+var chars=[
+{id:"zouqing",name:"邹 青",role:"22岁 · 行动担当 · 跆拳道教练",img:"邹青/thumbs/标准造型/方案1_全身.png",href:"邹青/index.html",stats:["83 张","6 分区","鲜绿夹克·GoPro"]},
+{id:"wangbo",name:"王 波",role:"18岁 · 队长兼规则分析",img:"王波/thumbs/正面肖像.png",href:"王波/index.html",stats:["10 张","造型参考","电子蓝·黑框眼镜"]},
+{id:"zhaowei",name:"赵 蔚",role:"20岁 · 观察位 · 数据分析",img:"赵蔚/thumbs/全身_正面站立.png",href:"赵蔚/index.html",stats:["12 张","造型参考","暗红·圆框眼镜"]},
+{id:"zhanghanghang",name:"张 杭 杭",role:"23岁 · 生活方式博主 · 邹青前女友",img:"张杭杭/thumbs/正面肖像.jpeg",href:"张杭杭/index.html",stats:["29 张","面部+表情","奶油粉·记录者"]},
+{id:"zhoukai",name:"周 凯",role:"25岁 · 机关位 · K.Ghost",img:"周凯/thumbs/正面肖像.png",href:"周凯/index.html",stats:["8 张","造型参考","橙色·装备控"]},
+{id:"mahua",name:"麻 花",role:"~8岁 · 儿童记忆残留体",img:"麻花/thumbs/正面肖像.png",href:"麻花/index.html",stats:["6 张","造型参考","浅黄背心·红蓝辫绳"]},
+{id:"nanjianlin",name:"南 建 林",role:"麻花父亲 · 星星岛维修工",img:"南建林/thumbs/头像_正面平视1.jpeg",href:"南建林/index.html",stats:["38 张","2 分区","头像+全身"]},
+];
+
+// Build sidebar nav
+var nav=document.getElementById("sidebarNav");
+chars.forEach(function(c){var a=document.createElement("a");a.href="#"+c.id;a.innerHTML=c.name.split(" ").join("")+'<span class="nav-count">'+c.stats[0]+'</span>';nav.appendChild(a)});
+
+// Build character cards
+var g=document.getElementById("chars");
+chars.forEach(function(c){
+var card=document.createElement("a");card.className="char-card";card.id=c.id;card.href=c.href;
+card.innerHTML='<div class="thumb"><img src="'+c.img+'" alt="'+c.name+'"></div><div class="info"><div class="name">'+c.name+'</div><div class="role">'+c.role+'</div><div class="stats">'+c.stats.map(function(s){return'<span class="stat">'+s+'</span>'}).join("")+'</div></div>';
+g.appendChild(card)
+});
+
+// Scroll spy
+var navLinks=document.querySelectorAll(".sidebar-nav a");
+function updateActive(){var s=window.scrollY+120;var a=null;navLinks.forEach(function(l){var sec=document.getElementById(l.getAttribute("href").slice(1));if(sec&&sec.offsetTop<=s)a=l});if(a){navLinks.forEach(function(l){l.classList.remove("active")});a.classList.add("active")}}
+window.addEventListener("scroll",updateActive);updateActive();
 </script>
 </body>
 </html>
